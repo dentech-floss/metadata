@@ -20,6 +20,7 @@ package example
 import (
     "github.com/dentech-floss/metadata/pkg/metadata"
     "github.com/dentech-floss/publisher/pkg/publisher"
+    "github.com/dentech-floss/revision/pkg/revision"
     "github.com/dentech-floss/telemetry/pkg/telemetry"
 )
 
