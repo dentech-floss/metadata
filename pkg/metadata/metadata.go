@@ -32,7 +32,7 @@ func NewMetadata() *Metadata {
 	}
 }
 
-// Returns the current instance's numeric project ID.
+// NumericProjectID - Returns the current instance's numeric project ID.
 func (m *Metadata) NumericProjectID() (string, error) {
 	if m.OnGCP {
 		return metadata.NumericProjectID()
@@ -40,7 +40,7 @@ func (m *Metadata) NumericProjectID() (string, error) {
 	return "", nil
 }
 
-// Returns the current VM's numeric instance ID.
+// InstanceID - Returns the current VM's numeric instance ID.
 func (m *Metadata) InstanceID() (string, error) {
 	if m.OnGCP {
 		return metadata.InstanceID()
@@ -48,7 +48,7 @@ func (m *Metadata) InstanceID() (string, error) {
 	return "", nil
 }
 
-// Returns the Cloud Run geographical region.
+// Region - Returns the Cloud Run geographical region.
 func (m *Metadata) Region() (string, error) {
 	if m.OnGCP {
 		return metadata.Get("instance/region")
@@ -56,7 +56,7 @@ func (m *Metadata) Region() (string, error) {
 	return "", nil
 }
 
-// Returns an OIDC token to call another services that can validate an identity token.
+// IdentityToken - Returns an OIDC token to call another services that can validate an identity token.
 // On Cloud Run, the provided "audience" shall be the URL of the service you want to invoke.
 // https://cloud.google.com/run/docs/securing/service-identity#identity_tokens
 func (m *Metadata) IdentityToken(audience string) (string, error) {
@@ -66,7 +66,7 @@ func (m *Metadata) IdentityToken(audience string) (string, error) {
 	return "", nil
 }
 
-// Returns an access token required to call GCP API's with.
+// AccessToken - Returns an access token required to call GCP API's with.
 // The provided "scopes" shall be a list of the OAuth scopes requested.
 // https://cloud.google.com/run/docs/securing/service-identity#access_tokens
 func (m *Metadata) AccessToken(scopes []string) (string, error) {
